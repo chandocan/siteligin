@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tela de Login Segura</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #1d3557, #457b9d);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .login-container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #457b9d;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .login-btn:hover {
+            background-color: #1d3557;
+        }
+        .footer-links {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .footer-links a {
+            color: #a8dadc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="/login" method="POST" autocomplete="off">
+            <div class="form-group">
+                <label for="username">Nome de Usuário</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Entrar</button>
+        </form>
+        <div class="footer-links">
+            <a href="/forgot-password">Esqueci minha senha</a> | 
+            <a href="/register">Registrar-se</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,15 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<!--
-yestando git com github simples teste 2024
--->
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0">
-    <title>SapoDev01TesteGit</title>
-    <!--apontando para o arquivo style.css-->
-    <link rel="stylesheet" href="css/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom right, #1d3557, #457b9d);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .user-display {
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .user-display h2 {
+            margin-bottom: 20px;
+        }
+        .user-display ul {
+            list-style: none;
+            padding: 0;
+        }
+        .user-display li {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #a8dadc;
+        }
+    </style>
 </head>
-
+<body>
+    <h1>Bem-vindo ao Sistema de Usuários</h1>
+    <div class="user-display">
+        <h2>Lista de Usuários</h2>
+        <ul id="user-list"></ul>
+    </div>
+    <script>
+        // Carregar usuários do arquivo JSON
+        fetch('usuarios.json')
+            .then(response => response.json())
+            .then(data => {
+                const userList = document.getElementById('user-list');
+                data.forEach(user => {
+                    const userItem = document.createElement('li');
+                    userItem.textContent = ${user.Nome} - ${user.Email};
+                    userList.appendChild(userItem);
+                });
+            })
+            .catch(error => console.error('Erro ao carregar usuários:', error));
+    </script>
+</body>
+</html>
